@@ -7,5 +7,5 @@ TEST::TEST(const char *name) {
 }
 
 void TEST::print() {
-  printf("%s \n", mName);
+  printf("%s gasdfghj\n", mName);
 }
