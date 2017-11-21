@@ -1,0 +1,2 @@
+-- パスワードの設定
+-- ALTER USER testuser WITH PASSWORD 'testuser';
