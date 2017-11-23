@@ -8,7 +8,9 @@ else
 endif
 LIBS      =
 INCLUDE   = -I ./include -I /usr/local/Cellar/postgresql/9.5.1/include/server
-TARGET    = ./bin/SimpleCgi
+CGINAME   = SimpleCgi
+TARGETDIR = ./bin
+TARGET    =$(addprefix $(TARGETDIR)/, $(CGINAME))
 SRCDIR    = ./src
 ifeq "$(strip $(SRCDIR))" ""
   SRCDIR  = .
