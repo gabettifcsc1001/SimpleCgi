@@ -11,7 +11,7 @@ dbname=$3
 
 # postgresユーザーでログイン
 # がべくんは必要かも↓
-# echo 'postgres' | su - postgres
+# echo $postgres | su - postgres
 
 # 既存のテーブルを削除
 dropdb $dbname
@@ -21,7 +21,7 @@ dropuser $username
 createuser -s $username
 
 # データベース作成
-createdb -O $username $dbname
+createdb -O $username $dbname -E 'UTF8'
 
 # testuserのパスワード変更
 psql $dbname -c "ALTER USER $username WITH PASSWORD '$username'";
