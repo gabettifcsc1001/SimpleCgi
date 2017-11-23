@@ -1,3 +1,24 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [CGI練習用リポジトリ](#cgi%E7%B7%B4%E7%BF%92%E7%94%A8%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA)
+  - [事前準備](#%E4%BA%8B%E5%89%8D%E6%BA%96%E5%82%99)
+    - [必要なもの](#%E5%BF%85%E8%A6%81%E3%81%AA%E3%82%82%E3%81%AE)
+    - [環境構築](#%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89)
+      - [DB](#db)
+      - [Make](#make)
+        - [Makefileの修正](#makefile%E3%81%AE%E4%BF%AE%E6%AD%A3)
+        - [Make](#make-1)
+    - [Apache](#apache)
+  - [ディレクトリ構成](#%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E6%A7%8B%E6%88%90)
+  - [DB設計の方法](#db%E8%A8%AD%E8%A8%88%E3%81%AE%E6%96%B9%E6%B3%95)
+    - [設計書の読み取り方法](#%E8%A8%AD%E8%A8%88%E6%9B%B8%E3%81%AE%E8%AA%AD%E3%81%BF%E5%8F%96%E3%82%8A%E6%96%B9%E6%B3%95)
+    - [設計書の保存](#%E8%A8%AD%E8%A8%88%E6%9B%B8%E3%81%AE%E4%BF%9D%E5%AD%98)
+    - [SQLの生成](#sql%E3%81%AE%E7%94%9F%E6%88%90)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # CGI練習用リポジトリ
 
 ## 事前準備
@@ -63,6 +84,8 @@ $ make
 
 [Apache:CGIの利用設定をする](https://qiita.com/YasuyukiKawai/items/231821dd22a72194b3fb)
 
+---
+
 ## ディレクトリ構成
 
 ```
@@ -81,6 +104,8 @@ SimpleCgi/
 ```
 
 todo srcは(Visual Studio的に言うと)ソリューション、プロジェクト毎にディレクトリ分けしないとね。
+
+---
 
 ## DB設計の方法
 
