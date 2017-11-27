@@ -20,6 +20,8 @@ int main(void){
   int      loop       = 0;
   memset( &sql_str[0] , 0x00 , sizeof(sql_str) );
 
+int dbconnect (){
+
   /* DB接続 */
   conn = PQsetdbLogin(
            sql_serv , // 接続先
@@ -36,6 +38,7 @@ int main(void){
     printf( "%s" ,PQerrorMessage(conn));
     exit(-1);
   }
+}
   // select文の発行
   snprintf( &sql_str[0] , sizeof(sql_str)-1 , "select * from tb_test" );
   resp = PQexecParams(
