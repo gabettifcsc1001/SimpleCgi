@@ -10,12 +10,14 @@
       - [Make](#make)
         - [Makefileの修正](#makefile%E3%81%AE%E4%BF%AE%E6%AD%A3)
         - [Make](#make-1)
-    - [Apache](#apache)
+      - [Apache](#apache)
+        - [ApacheでCGIを実行する方法(Mac)](#apache%E3%81%A7cgi%E3%82%92%E5%AE%9F%E8%A1%8C%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95mac)
   - [ディレクトリ構成](#%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E6%A7%8B%E6%88%90)
   - [DB設計の方法](#db%E8%A8%AD%E8%A8%88%E3%81%AE%E6%96%B9%E6%B3%95)
     - [設計書の読み取り方法](#%E8%A8%AD%E8%A8%88%E6%9B%B8%E3%81%AE%E8%AA%AD%E3%81%BF%E5%8F%96%E3%82%8A%E6%96%B9%E6%B3%95)
     - [設計書の保存](#%E8%A8%AD%E8%A8%88%E6%9B%B8%E3%81%AE%E4%BF%9D%E5%AD%98)
     - [SQLの生成](#sql%E3%81%AE%E7%94%9F%E6%88%90)
+  - [参考](#%E5%8F%82%E8%80%83)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -76,13 +78,48 @@ $ make
 
 `./app/server/bin`に実行ファイルが出力されます。
 
-### Apache
+#### Apache
 
 インストールしてcgi-bin内で.cgiファイルが実行できればOK。
 
 ユーザーでディレクトリでも/var/www/でもどちらでも良いです。
 
 [Apache:CGIの利用設定をする](https://qiita.com/YasuyukiKawai/items/231821dd22a72194b3fb)
+
+##### ApacheでCGIを実行する方法(Mac)
+
+Apacheの設定ファイル内を編集する
+
+``` shell
+$ vim /etc/apache2/httpd.conf
+```
+
+1: httpd.confファイル内の以下のコメントアウトを外す
+
+``` txt
+LoadModule cgi_module libexec/apache2/mod_cgi.so
+```
+
+2: < Directory "/Library/WebServer/CGI-Executables" >を以下に修正する
+
+``` txt
+<Directory "/Library/WebServer/CGI-Executables">
+    AllowOverride None
+    Require all granted
+    Options +ExecCGI
+    AddHandler cgi-script .cgi
+</Directory>
+```
+
+3: Apacheの再起動
+
+``` shell
+$ sudo apachectl restart
+```
+
+4: /Library/WebServer/CGI_excutables/内にモジュール(text.cgiとする)を置く
+
+5: ブラウザで'localhost/cgi-bin/text.cgi'にアクセスする
 
 ---
 
@@ -136,7 +173,6 @@ todo srcは(Visual Studio的に言うと)ソリューション、プロジェク
 1. 「保存/読み込み」をクリックする
 2. 「SQLを生成』押下するだけ。
 3. 出力した内容を`./sql/create.sql`にコピペして保存する
-
 
 ## 参考
 
