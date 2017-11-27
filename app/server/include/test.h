@@ -10,6 +10,7 @@ public:
 
 protected:
   char mName[1028];
+  
 };
 
 #endif // TEST_H
