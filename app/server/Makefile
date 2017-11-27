@@ -2,12 +2,12 @@ COMPILER  = g++
 CFLAGS    = -g -MMD -MP -Wall -Wextra -Winit-self -Wno-missing-field-initializers
 CFLAGS    = -g -MMD -MP
 ifeq "$(shell getconf LONG_BIT)" "64"
-  LDFLAGS = -L/usr/local/lib -lpq
+  LDFLAGS = -L/Library/PostgreSQL/9.5/lib -lpq
 else
-  LDFLAGS = -L/usr/local/lib -lpq
+  LDFLAGS = -L/Library/PostgreSQL/9.5/lib -lpq
 endif
 LIBS      =
-INCLUDE   = -I ./include -I /usr/local/Cellar/postgresql/9.5.1/include/server
+INCLUDE   = -I ./include -I /Library/PostgreSQL/9.5/include/postgresql -I /Library/PostgreSQL/9.5/include/postgresql/server
 CGINAME   = SimpleCgi
 TARGETDIR = ./bin
 TARGET    =$(addprefix $(TARGETDIR)/, $(CGINAME))
