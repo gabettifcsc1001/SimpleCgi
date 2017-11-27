@@ -8,6 +8,10 @@
 #define DPGS_GETRESLT_TEXT   0
 #define DPGS_GETRESLT_BINARY 1
 
+
+/**
+ * DBへのSelect発行サンプル
+ */
 int main(void){
   PGconn   *conn      = NULL;
   PGresult *resp      = NULL;
@@ -36,6 +40,7 @@ int main(void){
     printf( "%s" ,PQerrorMessage(conn));
     exit(-1);
   }
+
   // select文の発行
   snprintf( &sql_str[0] , sizeof(sql_str)-1 , "select * from tb_test" );
   resp = PQexecParams(
