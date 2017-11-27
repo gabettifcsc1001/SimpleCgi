@@ -135,3 +135,10 @@ todo srcは(Visual Studio的に言うと)ソリューション、プロジェク
 
 1. 「保存/読み込み」をクリックする
 2. 「SQLを生成』押下するだけ。
+3. 出力した内容を`./sql/create.sql`にコピペして保存する
+
+
+## 参考
+
+- [wwwsqldesigner](https://github.com/ondras/wwwsqldesigner)
+- [ディレクトリ構成図を書くときに便利な記号](https://qiita.com/paty-fakename/items/c82ed27b4070feeceff6)
