@@ -1,13 +1,13 @@
 #include "dblogin.h"
 
 // 接続先の情報を格納
-DBLOGIN::DBLOGIN(const char serv_name, const char user_name,
-                  const char pass, const char dbagr_name){
+DBLOGIN::DBLOGIN(char *serv_name, char *user_name,
+                char *pass, char *dbarg_name){
   conn = NULL;
-  *sql_serv = serv_name;
-  *db_name  = dbagr_name;
-  *user     = user_name;
-  *passwd   = pass;
+  strcpy(sql_serv, serv_name);
+  strcpy(db_name, dbagr_name;
+  strcpy(user, user_name);
+  strcpy(passwd, pass);
 }
 void DBLOGIN::DBConnect(){
 

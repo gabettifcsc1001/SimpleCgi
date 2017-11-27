@@ -5,6 +5,7 @@
 #ifndef TBLOGIN_H
 #define TBLOGIN_H
 
+#include <string.h>
 #include <errno.h>
 #include <postgres.h>
 
