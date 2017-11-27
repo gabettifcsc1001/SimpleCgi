@@ -1,18 +1,19 @@
-include "tbio.h"
-include "dblogin.h"
+#include "tbio.h"
+#include "dblogin.h"
 
-TBTESTIO::TBTESTIO(const int id, const char buf){
+TBTESTIO::TBTESTIO(const int id, const char *buf){
 
 
 }
-
+//
 void TBTESTIO::Set(){
     m_id = id;
-    m_buf = buf;
+    strcpy(m_buf, buf);
 }
 
-void TVTESTIO::SetField(){
-
+void TBTESTIO::SetField(){
+     
+     DBConnect();
 }
 
 void TBTESTIO::GetField(){

@@ -1,3 +1,7 @@
+//
+// DB接続クラス
+//
+
 #ifndef TBLOGIN_H
 #define TBLOGIN_H
 
@@ -5,14 +9,18 @@
 #include <postgres.h>
 
 
-class TBLOGIN
+class DBLOGIN
 {
 public:
-   TBLOGIN(char serv_name, char user_name, char pass, char dbarg_name);
+  　// コンストラクタ
+   DBLOGIN(char serv_name, char user_name, char pass, char dbarg_name);
+   //　DBに接続
    void DBConnect();
-   ~TBLOGIN();
+   // デストラクタ
+   ~DBLOGIN();
 
 protected:
+  // メンバー変数宣言
   PGconn   *conn
   char     *sql_serv
   char     *user
