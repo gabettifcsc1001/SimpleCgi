@@ -4,18 +4,35 @@
 #include <errno.h>
 #include <postgres.h>
 #include <libpq-fe.h>
+#include "Tbtest.h"
 
 #define DPGS_GETRESLT_TEXT   0
 #define DPGS_GETRESLT_BINARY 1
 
+int main (){
 
+tbTestIo test;
+int hoge = 0;
+char *piyo = NULL;
+
+test.Set("id", "123456789");
+test.Set("name", "tachibana");
+hoge = test.getId();
+piyo = test.getName();
+
+printf("%d///%s\n", hoge, piyo);
+test.Add();
+
+return 0;
+}
 /**
  * DBへのSelect発行サンプル
  */
+ /**
 int main(void){
   PGconn   *conn      = NULL;
   PGresult *resp      = NULL;
-  char      sql_str[255];
+  char     sql_str[255];
   char     *sql_serv  = "localhost";
   char     *user      = "testuser";
   char     *passwd    = "";
@@ -24,7 +41,7 @@ int main(void){
   int      loop       = 0;
   memset( &sql_str[0] , 0x00 , sizeof(sql_str) );
 
-  /* DB接続 */
+  /* DB接続 *//*
   conn = PQsetdbLogin(
            sql_serv , // 接続先
            NULL ,     // ポート番号
@@ -72,5 +89,7 @@ int main(void){
 
   // 後片づけ
   PQclear( resp );
+
   return 0;
 }
+*/
