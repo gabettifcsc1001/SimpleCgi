@@ -1,6 +1,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <libpq-fe.h>
+#include <postgres.h>
 
 class tbTestIo
 {
@@ -45,7 +46,7 @@ public:
    * DBからIDが一致するデータを取得し、メンバ変数に値をセットする
    * @param id [description]
    */
-  int Get(const char id); // -> SELECT  FROM tb_test WHERE id="";
+  int Get(const char *id); // -> SELECT  FROM tb_test WHERE id="";
 
   /**
    * メンバ変数のIDを取得する

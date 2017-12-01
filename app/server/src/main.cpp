@@ -15,13 +15,17 @@ tbTestIo test;
 int hoge = 0;
 char *piyo = NULL;
 
-test.Set("id", "123456789");
-test.Set("name", "tachibana");
+test.Set("id", "4");
+test.Set("name", "abe");
 hoge = test.getId();
 piyo = test.getName();
 
+
 printf("%d///%s\n", hoge, piyo);
-test.Add();
+test.Get("3");
+piyo = NULL;
+piyo = test.getName();
+printf("%s\n", piyo);
 
 return 0;
 }
